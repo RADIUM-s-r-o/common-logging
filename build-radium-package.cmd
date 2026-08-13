@@ -24,9 +24,17 @@ if "%MSBUILD_EXE%"=="" (
   )
 )
 
+:find-msbuild-with-vswhere
+if "%MSBUILD_EXE%"=="" if exist "%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" (
+  for /f "delims=" %%I in ('"%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" -latest -products * -requires Microsoft.Component.MSBuild -find MSBuild\**\Bin\MSBuild.exe') do (
+    set "MSBUILD_EXE=%%I"
+    goto :msbuild-found
+  )
+)
+
 :msbuild-found
 if "%MSBUILD_EXE%"=="" (
-  echo MSBuild was not found. Set MSBUILD_EXE to the full path of MSBuild.exe.
+  echo MSBuild was not found. Install Visual Studio Build Tools or set MSBUILD_EXE.
   exit /b 1
 )
 
