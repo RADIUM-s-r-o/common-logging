@@ -14,6 +14,8 @@
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <Log4NetReferencePath Condition=" '$(Log4NetReferencePath)' == '' ">..\..\lib\Log4Net1213\net\4.0\log4net.dll</Log4NetReferencePath>
+    <CommonLoggingReferencePath Condition=" '$(CommonLoggingReferencePath)' == '' ">..\..\packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll</CommonLoggingReferencePath>
+    <CommonLoggingCoreReferencePath Condition=" '$(CommonLoggingCoreReferencePath)' == '' ">..\..\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</CommonLoggingCoreReferencePath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,6 +41,12 @@
   <ItemGroup>
     <Reference Include="log4net">
       <HintPath>$(Log4NetReferencePath)</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging">
+      <HintPath>$(CommonLoggingReferencePath)</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core">
+      <HintPath>$(CommonLoggingCoreReferencePath)</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -74,16 +82,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Common.Logging.Core\Common.Logging.Core.2010.csproj">
-      <Project>{7eeb2191-b3fc-4509-aa4b-a345c386eeed}</Project>
-      <Name>Common.Logging.Core.2010</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Common.Logging\Common.Logging.2010-net40.csproj">
-      <Project>{440D903A-D409-48FC-A6C4-3EE69CCD663B}</Project>
-      <Name>Common.Logging.2010-net40</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
