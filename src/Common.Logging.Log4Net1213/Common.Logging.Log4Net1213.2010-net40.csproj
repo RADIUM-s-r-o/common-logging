@@ -13,6 +13,7 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <Log4NetReferencePath Condition=" '$(Log4NetReferencePath)' == '' ">..\..\lib\Log4Net1213\net\4.0\log4net.dll</Log4NetReferencePath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -37,7 +38,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="log4net">
-      <HintPath>..\..\lib\Log4Net1213\net\4.0\log4net.dll</HintPath>
+      <HintPath>$(Log4NetReferencePath)</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
