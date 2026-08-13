@@ -18,8 +18,8 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="..\..\build\net40\Common.Logging.Log4Net1213\Release\Common.Logging.Log4Net1213.dll" target="lib\net40" />
-    <file src="..\..\build\net40\Common.Logging.Log4Net1213\Release\Common.Logging.Log4Net1213.pdb" target="lib\net40" />
-    <file src="..\..\build\net40\Common.Logging.Log4Net1213\Release\Common.Logging.Log4Net1213.xml" target="lib\net40" />
+    <file src="..\..\build\net462\Common.Logging.Log4Net1213\Release\Common.Logging.Log4Net1213.dll" target="lib\net462" />
+    <file src="..\..\build\net462\Common.Logging.Log4Net1213\Release\Common.Logging.Log4Net1213.pdb" target="lib\net462" />
+    <file src="..\..\build\net462\Common.Logging.Log4Net1213\Release\Common.Logging.Log4Net1213.xml" target="lib\net462" />
   </files>
 </package>

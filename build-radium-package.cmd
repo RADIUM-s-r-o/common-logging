@@ -4,7 +4,7 @@ setlocal
 set "ROOT=%~dp0"
 if "%PACKAGE_VERSION%"=="" set "PACKAGE_VERSION=3.4.1-radium.1"
 if "%LOG4NET_DLL%"=="" set "LOG4NET_DLL=%ROOT%packages\log4net.3.3.1\lib\net462\log4net.dll"
-if "%FRAMEWORK_PATH%"=="" set "FRAMEWORK_PATH=%ROOT%packages\Microsoft.NETFramework.ReferenceAssemblies.net40.1.0.3\build\.NETFramework\v4.0"
+if "%FRAMEWORK_PATH%"=="" set "FRAMEWORK_PATH=%ROOT%packages\Microsoft.NETFramework.ReferenceAssemblies.net462.1.0.3\build\.NETFramework\v4.6.2"
 if "%COMMON_LOGGING_DLL%"=="" set "COMMON_LOGGING_DLL=%ROOT%packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll"
 if "%COMMON_LOGGING_CORE_DLL%"=="" set "COMMON_LOGGING_CORE_DLL=%ROOT%packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll"
 
@@ -14,9 +14,9 @@ if not exist "%LOG4NET_DLL%" if "%LOG4NET_DLL%"=="%ROOT%packages\log4net.3.3.1\l
   if errorlevel 1 exit /b 1
 )
 
-if not exist "%FRAMEWORK_PATH%" if "%FRAMEWORK_PATH%"=="%ROOT%packages\Microsoft.NETFramework.ReferenceAssemblies.net40.1.0.3\build\.NETFramework\v4.0" (
-  echo Restoring .NET Framework 4.0 reference assemblies...
-  "%ROOT%tools\nuget\NuGet.exe" install Microsoft.NETFramework.ReferenceAssemblies.net40 -Version 1.0.3 -OutputDirectory "%ROOT%packages" -NonInteractive
+if not exist "%FRAMEWORK_PATH%" if "%FRAMEWORK_PATH%"=="%ROOT%packages\Microsoft.NETFramework.ReferenceAssemblies.net462.1.0.3\build\.NETFramework\v4.6.2" (
+  echo Restoring .NET Framework 4.6.2 reference assemblies...
+  "%ROOT%tools\nuget\NuGet.exe" install Microsoft.NETFramework.ReferenceAssemblies.net462 -Version 1.0.3 -OutputDirectory "%ROOT%packages" -NonInteractive
   if errorlevel 1 exit /b 1
 )
 
@@ -40,7 +40,7 @@ if not exist "%LOG4NET_DLL%" (
 
 if not exist "%FRAMEWORK_PATH%" (
   echo .NET Framework reference assemblies were not found: %FRAMEWORK_PATH%
-  echo Set FRAMEWORK_PATH to the directory containing the v4.0 reference assemblies.
+  echo Set FRAMEWORK_PATH to the directory containing the v4.6.2 reference assemblies.
   exit /b 1
 )
 
