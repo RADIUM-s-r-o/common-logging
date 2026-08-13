@@ -3,7 +3,13 @@ setlocal
 
 set "ROOT=%~dp0"
 if "%PACKAGE_VERSION%"=="" set "PACKAGE_VERSION=3.4.1-radium.1"
-if "%LOG4NET_DLL%"=="" set "LOG4NET_DLL=C:\temp\NuGetPackages\log4net.3.3.1\lib\net462\log4net.dll"
+if "%LOG4NET_DLL%"=="" set "LOG4NET_DLL=%ROOT%packages\log4net.3.3.1\lib\net462\log4net.dll"
+
+if not exist "%LOG4NET_DLL%" if "%LOG4NET_DLL%"=="%ROOT%packages\log4net.3.3.1\lib\net462\log4net.dll" (
+  echo Restoring log4net 3.3.1...
+  "%ROOT%tools\nuget\NuGet.exe" install log4net -Version 3.3.1 -OutputDirectory "%ROOT%packages" -NonInteractive
+  if errorlevel 1 exit /b 1
+)
 
 if not exist "%LOG4NET_DLL%" (
   echo log4net.dll was not found: %LOG4NET_DLL%
